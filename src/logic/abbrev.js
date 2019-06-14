@@ -1,6 +1,6 @@
 const util = require('util');
 
-const maxStringLength = 128;
+const maxStringLength = 512;
 
 module.exports = value => util.inspect(value, {
   compact: true,
