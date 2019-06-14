@@ -67,6 +67,6 @@ describe('Testing abbrev', () => {
   it('Testing truncating long string', () => {
     expect(abbrev({
       one: 'a'.repeat(1000)
-    })).to.equal(`{ one: '${'a'.repeat(128)}... }`);
+    })).to.equal(`{ one: '${'a'.repeat(512)}... }`);
   });
 });
