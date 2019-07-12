@@ -38,9 +38,10 @@ describe('Testing abbrev', () => {
   it('Testing truncating string array', () => {
     expect(abbrev({
       one: createAscArray(1000, true)
-    })).to.equal(
+    })).to.be.oneOf([
+      "{ one: [ '0','1','2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }",
       "{ one: [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', ... 986 more items ] }"
-    );
+    ]);
   });
 
   it('Testing truncating array of string array', () => {
@@ -60,10 +61,12 @@ describe('Testing abbrev', () => {
         }
         return e;
       })
-    })).to.equal(
+    })).to.be.oneOf([
       "{ one: [ '0',[ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', ... 986 more items ]"
+      + ",'2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }",
+      "{ one: [ '0',[ '0','1','2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ]"
       + ",'2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }"
-    );
+    ]);
   });
 
   it('Testing truncating long string', () => {
