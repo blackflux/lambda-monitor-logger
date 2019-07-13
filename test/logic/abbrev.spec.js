@@ -9,16 +9,21 @@ describe('Testing abbrev', () => {
   it('Testing truncating int array', () => {
     expect(abbrev({
       one: createAscArray(1000)
-    })).to.equal('{ one: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ... 986 more items ] }');
+    })).to.be.oneOf([
+      '{ one: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ... 986 more items ] }',
+      '{ one:[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ... 986 more items ] }'
+    ]);
   });
 
   it('Testing truncating array of int array', () => {
     expect(abbrev({
       one: createAscArray(1000).map(e => [e])
-    })).to.equal(
+    })).to.be.oneOf([
       '{ one: [ [ 0 ],[ 1 ],[ 2 ],[ 3 ],[ 4 ],[ 5 ],[ 6 ],[ 7 ],[ 8 ],'
+      + '[ 9 ],[ 10 ],[ 11 ],[ 12 ],[ 13 ],... 986 more items ] }',
+      '{ one:[ [ 0 ],[ 1 ],[ 2 ],[ 3 ],[ 4 ],[ 5 ],[ 6 ],[ 7 ],[ 8 ],'
       + '[ 9 ],[ 10 ],[ 11 ],[ 12 ],[ 13 ],... 986 more items ] }'
-    );
+    ]);
   });
 
   it('Testing truncating double nested int array', () => {
@@ -29,25 +34,30 @@ describe('Testing abbrev', () => {
         }
         return e;
       })
-    })).to.equal(
+    })).to.be.oneOf([
       '{ one: [ 0,[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ... 986 more items ]'
+      + ',2,3,4,5,6,7,8,9,10,11,12,13,... 986 more items ] }',
+      '{ one:[ 0,[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ... 986 more items ]'
       + ',2,3,4,5,6,7,8,9,10,11,12,13,... 986 more items ] }'
-    );
+    ]);
   });
 
   it('Testing truncating string array', () => {
     expect(abbrev({
       one: createAscArray(1000, true)
-    })).to.equal("{ one: [ '0','1','2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }");
+    })).to.be.oneOf([
+      "{ one:[ '0','1','2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }",
+      "{ one:[ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', ... 986 more items ] }"
+    ]);
   });
 
   it('Testing truncating array of string array', () => {
     expect(abbrev({
       one: createAscArray(1000, true).map(e => [e])
-    })).to.equal(
-      "{ one: [ [ '0' ],[ '1' ],[ '2' ],[ '3' ],[ '4' ],[ '5' ],[ '6' ],[ '7' ],"
+    })).to.be.oneOf([
+      "{ one:[ [ '0' ],[ '1' ],[ '2' ],[ '3' ],[ '4' ],[ '5' ],[ '6' ],[ '7' ],"
       + "[ '8' ],[ '9' ],[ '10' ],[ '11' ],[ '12' ],[ '13' ],... 986 more items ] }"
-    );
+    ]);
   });
 
   it('Testing truncating double nested string array', () => {
@@ -58,15 +68,20 @@ describe('Testing abbrev', () => {
         }
         return e;
       })
-    })).to.equal(
-      "{ one: [ '0',[ '0','1','2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ]"
+    })).to.be.oneOf([
+      "{ one:[ '0',[ '0','1','2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ]"
+      + ",'2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }",
+      "{ one:[ '0',[ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', ... 986 more items ]"
       + ",'2','3','4','5','6','7','8','9','10','11','12','13',... 986 more items ] }"
-    );
+    ]);
   });
 
   it('Testing truncating long string', () => {
     expect(abbrev({
       one: 'a'.repeat(1000)
-    })).to.equal(`{ one: '${'a'.repeat(512)}... }`);
+    })).to.be.oneOf([
+      `{ one: '${'a'.repeat(512)}... }`,
+      `{ one:'${'a'.repeat(512)}... }`
+    ]);
   });
 });
