@@ -9,7 +9,7 @@ describe('Testing logger.', () => {
 
   beforeEach(() => {
     assert(logs.length === 0);
-    console.log = msg => logs.push(msg);
+    console.log = (msg) => logs.push(msg);
   });
 
   afterEach(() => {

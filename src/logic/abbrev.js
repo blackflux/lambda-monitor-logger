@@ -2,7 +2,7 @@ const util = require('util');
 
 const maxStringLength = 512;
 
-module.exports = value => util.inspect(value, {
+module.exports = (value) => util.inspect(value, {
   compact: true,
   maxArrayLength: 14,
   depth: 16,
