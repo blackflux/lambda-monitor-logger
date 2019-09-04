@@ -3,6 +3,18 @@ const logging = (type, msg) => {
   console.log(`${type.toUpperCase()}: ${msg}`);
 };
 
-module.exports = ['debug', 'info', 'warning', 'error', 'critical'].reduce((p, c) => Object.assign(p, {
-  [c]: (...msgs) => msgs.forEach((m) => logging(c, m))
-}), {});
+module.exports = Object.entries({
+  debug: ['debug', 'trace'],
+  info: ['info', 'log'],
+  warning: ['warning', 'warn'],
+  error: ['error', 'err'],
+  critical: ['critical', 'fatal']
+}).reduce(
+  (prev, [level, names]) => Object.assign(prev, names.reduce(
+    (p, name) => Object.assign(p, {
+      [name]: (...msgs) => msgs.forEach((msg) => logging(level, msg))
+    }),
+    {}
+  )),
+  {}
+);
