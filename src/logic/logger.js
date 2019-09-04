@@ -5,7 +5,7 @@ const logging = (type, msg) => {
 
 module.exports = Object.entries({
   debug: ['debug', 'trace'],
-  info: ['info'],
+  info: ['info', 'log'],
   warning: ['warning', 'warn'],
   error: ['error', 'err'],
   critical: ['critical', 'fatal']

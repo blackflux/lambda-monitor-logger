@@ -9,6 +9,7 @@ describe('Testing logger.', { record: console }, () => {
       'debug',
       'trace',
       'info',
+      'log',
       'warning',
       'warn',
       'error',
