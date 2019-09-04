@@ -1,34 +1,35 @@
 /* eslint-disable no-console */
-const assert = require('assert');
 const { expect } = require('chai');
+const { describe } = require('node-tdd');
 const logger = require('../../src/logic/logger');
 
-describe('Testing logger.', () => {
-  const consoleLogOriginal = console.log;
-  const logs = [];
-
-  beforeEach(() => {
-    assert(logs.length === 0);
-    console.log = (msg) => logs.push(msg);
-  });
-
-  afterEach(() => {
-    logs.length = 0;
-    console.log = consoleLogOriginal;
-  });
-
-
+describe('Testing logger.', { record: console }, () => {
   it('Testing logger types.', () => {
-    expect(Object.keys(logger)).to.deep.equal(['debug', 'info', 'warning', 'error', 'critical']);
+    expect(Object.keys(logger)).to.deep.equal([
+      'debug',
+      'trace',
+      'info',
+      'warning',
+      'warn',
+      'error',
+      'err',
+      'critical',
+      'fatal'
+    ]);
   });
 
-  it('Testing single message.', () => {
+  it('Testing message alias.', ({ recorder }) => {
+    logger.warn('message');
+    expect(recorder.get()).to.deep.equal(['WARNING: message']);
+  });
+
+  it('Testing single message.', ({ recorder }) => {
     logger.info('message');
-    expect(logs).to.deep.equal(['INFO: message']);
+    expect(recorder.get()).to.deep.equal(['INFO: message']);
   });
 
-  it('Testing multiple messages.', () => {
+  it('Testing multiple messages.', ({ recorder }) => {
     logger.info('message1', 'message2');
-    expect(logs).to.deep.equal(['INFO: message1', 'INFO: message2']);
+    expect(recorder.get()).to.deep.equal(['INFO: message1', 'INFO: message2']);
   });
 });
