@@ -33,3 +33,5 @@ logger.error(abbrev('some really long text'));
 This logger will simply log to console and prefix with the debug level.
 
 The available levels are: `debug`, `info`, `warning`, `error`, `critical`.
+
+Synonyms like `warn` are available and the mapping can be found in the source code.
