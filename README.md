@@ -35,3 +35,9 @@ This logger will simply log to console and prefix with the debug level.
 The available levels are: `debug`, `info`, `warning`, `error`, `critical`.
 
 Synonyms like `warn` are available and the mapping can be found in the source code.
+
+## Log Level
+
+The log level can be set through the environment variable `LOG_LEVEL` (defaults to `DEBUG`).
+
+Log messages below the currently set log level are completely ignored.
