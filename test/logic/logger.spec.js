@@ -38,4 +38,16 @@ describe('Testing logger.', { record: console }, () => {
     logger.info({ msg: 'message' });
     expect(recorder.get()).to.deep.equal(["INFO: { msg: 'message' }"]);
   });
+
+  it('Testing LOG_LEVEL.', ({ recorder }) => {
+    logger.debug('message');
+    logger.info('message');
+    expect(recorder.get()).to.deep.equal(['DEBUG: message', 'INFO: message']);
+    recorder.reset();
+    process.env.LOG_LEVEL = 'INFO';
+    logger.debug('message');
+    logger.info('message');
+    expect(recorder.get()).to.deep.equal(['INFO: message']);
+    delete process.env.LOG_LEVEL;
+  });
 });
