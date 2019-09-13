@@ -5,16 +5,24 @@ const logging = (type, msg) => {
   console.log(`${type.toUpperCase()}: ${typeof msg === 'string' ? msg : abbrev(msg)}`);
 };
 
-module.exports = Object.entries({
+const levelMap = {
   debug: ['debug', 'trace'],
   info: ['info', 'log'],
   warning: ['warning', 'warn'],
   error: ['error', 'err'],
   critical: ['critical', 'fatal']
-}).reduce(
-  (prev, [level, names]) => Object.assign(prev, names.reduce(
+};
+
+const levels = Object.keys(levelMap);
+
+module.exports = Object.entries(levelMap).reduce(
+  (prev, [level, names], idx) => Object.assign(prev, names.reduce(
     (p, name) => Object.assign(p, {
-      [name]: (...msgs) => msgs.forEach((msg) => logging(level, msg))
+      [name]: (...msgs) => {
+        if (levels.indexOf((process.env.LOG_LEVEL || 'debug').toLowerCase()) <= idx) {
+          msgs.forEach((msg) => logging(level, msg));
+        }
+      }
     }),
     {}
   )),
