@@ -1,6 +1,8 @@
+const abbrev = require('./abbrev');
+
 const logging = (type, msg) => {
   // eslint-disable-next-line no-console
-  console.log(`${type.toUpperCase()}: ${msg}`);
+  console.log(`${type.toUpperCase()}: ${typeof msg === 'string' ? msg : abbrev(msg)}`);
 };
 
 module.exports = Object.entries({
