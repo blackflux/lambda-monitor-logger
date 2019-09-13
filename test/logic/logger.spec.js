@@ -33,4 +33,9 @@ describe('Testing logger.', { record: console }, () => {
     logger.info('message1', 'message2');
     expect(recorder.get()).to.deep.equal(['INFO: message1', 'INFO: message2']);
   });
+
+  it('Testing message object.', ({ recorder }) => {
+    logger.info({ msg: 'message' });
+    expect(recorder.get()).to.deep.equal(["INFO: { msg: 'message' }"]);
+  });
 });
