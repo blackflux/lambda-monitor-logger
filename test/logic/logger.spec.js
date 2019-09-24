@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const { expect } = require('chai');
 const { describe } = require('node-tdd');
 const logger = require('../../src/logic/logger');
