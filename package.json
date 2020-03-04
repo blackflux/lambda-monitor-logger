@@ -37,7 +37,9 @@
     "url": "https://github.com/blackflux/lambda-monitor-logger/issues"
   },
   "homepage": "https://github.com/blackflux/lambda-monitor-logger#readme",
-  "dependencies": {},
+  "dependencies": {
+    "joi-strict": "1.2.0"
+  },
   "licenses": [
     {
       "type": "MIT",
