@@ -5,7 +5,8 @@ describe('Testing Library', () => {
   it('Testing index exports', () => {
     expect(Object.keys(index)).to.deep.equal([
       'logger',
-      'abbrev'
+      'abbrev',
+      'datadog'
     ]);
   });
 });
