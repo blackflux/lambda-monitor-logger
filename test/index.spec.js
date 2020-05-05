@@ -6,7 +6,8 @@ describe('Testing Library', () => {
     expect(Object.keys(index)).to.deep.equal([
       'logger',
       'abbrev',
-      'datadog'
+      'datadog',
+      's3'
     ]);
   });
 });
