@@ -3833,7 +3833,7 @@ joi-strict@1.2.2:
   dependencies:
     "@hapi/joi" "17.1.1"
 
-js-gardener@^2.0.154:
+js-gardener@2.0.154:
   version "2.0.154"
   resolved "https://registry.yarnpkg.com/js-gardener/-/js-gardener-2.0.154.tgz#275eeec72e755e52d392567e6d0be93496a38829"
   integrity sha512-wFybvmq9s9/rxUOYUQL0FgNPPU4s6kS/saZGW2ON728OKtkYwgyiXq8EFLNCxT2xr2JNmeubIp561eVfN+GmOg==
