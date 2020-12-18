@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/blackflux/lambda-monitor-logger#readme",
   "dependencies": {
-    "joi-strict": "1.2.8"
+    "joi-strict": "1.2.9"
   },
   "licenses": [
     {
