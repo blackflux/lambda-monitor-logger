@@ -6,6 +6,7 @@ describe('Testing Library', () => {
     expect(Object.keys(index)).to.deep.equal([
       'logger',
       'abbrev',
+      'email',
       'json',
       'datadog',
       's3'
