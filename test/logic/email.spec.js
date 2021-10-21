@@ -7,11 +7,11 @@ describe('Testing email.', { record: console }, () => {
     email.notify({
       from: 'source@test.com',
       to: 'target@test.com',
-      title: 'title text',
+      subject: 'subject text',
       body: 'body text'
     });
     expect(recorder.get()).to.deep.equal([
-      'EMAIL: {"from":"source@test.com","to":"target@test.com","title":"title text","body":"body text"}'
+      'EMAIL: {"from":"source@test.com","to":"target@test.com","subject":"subject text","body":"body text"}'
     ]);
   });
 });
