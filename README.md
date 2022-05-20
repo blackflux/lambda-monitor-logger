@@ -58,3 +58,12 @@ Type: `integer`<br>
 Default: `512`
 
 The maximum output length.
+
+### replace
+
+Type: `Array`<br>
+Default: `[]`
+
+Input needs to be of format `[[<STRING|REGEX>, <STRING|FUNCTION>], ...]`
+
+Allow custom replacement rules

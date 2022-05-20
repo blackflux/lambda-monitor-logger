@@ -6,6 +6,11 @@ const createAscArray = (count, asString = false) => Array
   .apply(null, { length: count }).map((_, idx) => (asString ? String(idx) : idx));
 
 describe('Testing abbrev', () => {
+  it('Testing custom replace', () => {
+    const input = 'abcabc';
+    expect(abbrev(input, { replace: [['a', 'X']] })).to.equal("'XbcXbc'");
+  });
+
   it('Testing line stripping', () => {
     const input = new Error();
     expect(abbrev(input, { stripLineBreaks: true })).to.not.contain('\n');
