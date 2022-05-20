@@ -51,3 +51,10 @@ Type: `boolean`<br>
 Default: `true`
 
 When set to true, line breaks are stripped.
+
+### maxLength
+
+Type: `integer`<br>
+Default: `512`
+
+The maximum output length.
