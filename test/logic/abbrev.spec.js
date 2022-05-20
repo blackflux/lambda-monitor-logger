@@ -6,6 +6,12 @@ const createAscArray = (count, asString = false) => Array
   .apply(null, { length: count }).map((_, idx) => (asString ? String(idx) : idx));
 
 describe('Testing abbrev', () => {
+  it('Testing line stripping', () => {
+    const input = new Error();
+    expect(abbrev(input, { stripLineBreaks: true })).to.not.contain('\n');
+    expect(abbrev(input, { stripLineBreaks: false })).to.contain('\n');
+  });
+
   it('Testing truncating int array', () => {
     expect(abbrev({
       one: createAscArray(1000)

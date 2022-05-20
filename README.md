@@ -41,3 +41,13 @@ Synonyms like `warn` are available and the mapping can be found in the source co
 The log level can be set through the environment variable `LOG_LEVEL` (defaults to `DEBUG`).
 
 Log messages below the currently set log level are completely ignored.
+
+
+## Abbrev Options
+
+### stripLineBreaks
+
+Type: `boolean`<br>
+Default: `true`
+
+When set to true, line breaks are stripped.
