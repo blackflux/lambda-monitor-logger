@@ -8,7 +8,10 @@ const createAscArray = (count, asString = false) => Array
 describe('Testing abbrev', () => {
   it('Testing custom replace', () => {
     const input = 'abcabc';
-    expect(abbrev(input, { replace: [['a', 'X']] })).to.equal("'XbcXbc'");
+    expect(abbrev(input, { replace: [['a', 'X']] }))
+      .to.equal("'XbcXbc'");
+    expect(abbrev(input, { replace: [[/a/, 'X']] }))
+      .to.equal("'Xbcabc'");
   });
 
   it('Testing line stripping', () => {
