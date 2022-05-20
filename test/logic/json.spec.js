@@ -1,6 +1,6 @@
-const { expect } = require('chai');
-const { describe } = require('node-tdd');
-const json = require('../../src/logic/json');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import json from '../../src/logic/json.js';
 
 describe('Testing json.', { record: console }, () => {
   it('Testing logging as json.', ({ recorder }) => {

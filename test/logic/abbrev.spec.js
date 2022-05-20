@@ -1,5 +1,5 @@
-const expect = require('chai').expect;
-const abbrev = require('../../src/logic/abbrev');
+import { expect } from 'chai';
+import abbrev from '../../src/logic/abbrev.js';
 
 // eslint-disable-next-line prefer-spread
 const createAscArray = (count, asString = false) => Array

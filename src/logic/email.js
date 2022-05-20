@@ -1,8 +1,8 @@
-const Joi = require('joi-strict');
+import Joi from 'joi-strict';
 
 const emailFormat = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
-module.exports = {
+export default {
   notify: (obj) => {
     Joi.assert(obj, Joi.object().keys({
       from: Joi.string().pattern(emailFormat),

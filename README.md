@@ -21,7 +21,7 @@ Install with [npm](https://www.npmjs.com/):
 
 <!-- eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies -->
 ```js
-const { logger, abbrev } = require('lambda-monitor-logger');
+import { logger, abbrev } from 'lambda-monitor-logger';
 
 logger.error('Keyboard not found. Press F1 to Resume');
 // => ERROR: Keyboard not found. Press F1 to Resume

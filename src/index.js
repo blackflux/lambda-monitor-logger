@@ -1,13 +1,13 @@
-const logger = require('./logic/logger');
-const abbrev = require('./logic/abbrev');
-const email = require('./logic/email');
-const json = require('./logic/json');
-const datadog = require('./logic/datadog');
-const s3 = require('./logic/s3');
+import logger_ from './logic/logger.js';
+import abbrev_ from './logic/abbrev.js';
+import email_ from './logic/email.js';
+import json_ from './logic/json.js';
+import datadog_ from './logic/datadog.js';
+import s3_ from './logic/s3.js';
 
-module.exports.logger = logger;
-module.exports.abbrev = abbrev;
-module.exports.email = email;
-module.exports.json = json;
-module.exports.datadog = datadog;
-module.exports.s3 = s3;
+export const logger = logger_;
+export const abbrev = abbrev_;
+export const email = email_;
+export const json = json_;
+export const datadog = datadog_;
+export const s3 = s3_;

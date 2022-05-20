@@ -1,5 +1,6 @@
 {
   "name": "lambda-monitor-logger",
+  "type": "module",
   "version": "0.0.0-development",
   "description": "Logging designed to be used with lambda-monitor",
   "main": "lib/index.js",
@@ -39,7 +40,7 @@
   },
   "homepage": "https://github.com/blackflux/lambda-monitor-logger#readme",
   "dependencies": {
-    "joi-strict": "2.0.0"
+    "joi-strict": "2.0.1"
   },
   "licenses": [
     {
@@ -48,60 +49,29 @@
     }
   ],
   "devDependencies": {
-    "@babel/cli": "7.14.8",
-    "@babel/core": "7.15.0",
-    "@babel/register": "7.15.3",
-    "@blackflux/eslint-plugin-rules": "2.0.3",
-    "@blackflux/robo-config-plugin": "5.3.0",
-    "babel-eslint": "10.1.0",
-    "babel-preset-latest-node": "5.5.1",
-    "chai": "4.3.4",
+    "@babel/core": "7.18.0",
+    "@babel/eslint-parser": "7.17.0",
+    "@babel/register": "7.17.7",
+    "@blackflux/eslint-plugin-rules": "2.1.0",
+    "@blackflux/robo-config-plugin": "7.8.2",
+    "c8": "7.11.3",
+    "chai": "4.3.6",
     "coveralls": "3.1.1",
-    "eslint": "7.32.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "2.24.2",
+    "eslint": "8.15.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-json": "3.1.0",
-    "eslint-plugin-markdown": "2.2.0",
-    "eslint-plugin-mocha": "9.0.0",
-    "js-gardener": "3.0.3",
-    "node-tdd": "3.0.4",
+    "eslint-plugin-markdown": "2.2.1",
+    "eslint-plugin-mocha": "10.0.4",
+    "js-gardener": "3.0.5",
+    "node-tdd": "3.4.1",
     "nyc": "15.1.0",
-    "semantic-release": "17.4.7"
+    "smart-fs": "3.0.1"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 14"
   },
   "files": [
     "lib"
-  ],
-  "nyc": {
-    "exclude": [
-      "gardener.js",
-      "node_modules/*",
-      "coverage/*",
-      "lib/*"
-    ],
-    "all": true,
-    "babel": true,
-    "branches": 100,
-    "cache": true,
-    "check-coverage": true,
-    "extension": [],
-    "functions": 100,
-    "include": [
-      "**/*.js"
-    ],
-    "lines": 100,
-    "per-file": false,
-    "report-dir": "./coverage",
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "require": [
-      "@babel/register"
-    ],
-    "statements": 100,
-    "tempDir": "./coverage/.nyc_output"
-  }
+  ]
 }

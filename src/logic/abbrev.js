@@ -1,11 +1,11 @@
-const util = require('util');
+import util from 'util';
 
 const callback = (match, idx, str) => {
   const prevChar = str[idx - 1];
   return prevChar === ',' || prevChar === ':' ? '' : ' ';
 };
 
-module.exports = (value, {
+export default (value, {
   stripLineBreaks = true,
   maxLength = 512,
   replace = []

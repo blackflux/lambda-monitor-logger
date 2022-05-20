@@ -1,6 +1,6 @@
-const { expect } = require('chai');
-const { describe } = require('node-tdd');
-const datadog = require('../../src/logic/datadog');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import datadog from '../../src/logic/datadog.js';
 
 describe('Testing datadog.', { record: console, timestamp: 1583284374 }, () => {
   it('Testing logging as array.', ({ recorder }) => {
