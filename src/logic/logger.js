@@ -1,4 +1,4 @@
-const abbrev = require('./abbrev');
+import abbrev from './abbrev.js';
 
 const logging = (type, msg) => {
   // eslint-disable-next-line no-console
@@ -15,7 +15,7 @@ const levelMap = {
 
 const levels = Object.keys(levelMap);
 
-module.exports = Object.entries(levelMap).reduce(
+export default Object.entries(levelMap).reduce(
   (prev, [level, names], idx) => Object.assign(prev, names.reduce(
     (p, name) => Object.assign(p, {
       [name]: (...msgs) => {

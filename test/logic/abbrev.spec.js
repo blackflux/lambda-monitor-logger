@@ -1,11 +1,19 @@
-const expect = require('chai').expect;
-const abbrev = require('../../src/logic/abbrev');
+import { expect } from 'chai';
+import abbrev from '../../src/logic/abbrev.js';
 
 // eslint-disable-next-line prefer-spread
 const createAscArray = (count, asString = false) => Array
   .apply(null, { length: count }).map((_, idx) => (asString ? String(idx) : idx));
 
 describe('Testing abbrev', () => {
+  it('Testing custom replace', () => {
+    const input = 'abcabc';
+    expect(abbrev(input, { replace: [['a', 'X']] }))
+      .to.equal("'XbcXbc'");
+    expect(abbrev(input, { replace: [[/a/, 'X']] }))
+      .to.equal("'Xbcabc'");
+  });
+
   it('Testing line stripping', () => {
     const input = new Error();
     expect(abbrev(input, { stripLineBreaks: true })).to.not.contain('\n');

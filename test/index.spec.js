@@ -1,14 +1,14 @@
-const expect = require('chai').expect;
-const index = require('../src/index');
+import { expect } from 'chai';
+import * as index from '../src/index.js';
 
 describe('Testing Library', () => {
   it('Testing index exports', () => {
     expect(Object.keys(index)).to.deep.equal([
-      'logger',
       'abbrev',
+      'datadog',
       'email',
       'json',
-      'datadog',
+      'logger',
       's3'
     ]);
   });

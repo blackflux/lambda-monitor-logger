@@ -1,6 +1,6 @@
-const { expect } = require('chai');
-const { describe } = require('node-tdd');
-const email = require('../../src/logic/email');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import email from '../../src/logic/email.js';
 
 describe('Testing email.', { record: console }, () => {
   it('Testing logging as email.', ({ recorder }) => {
