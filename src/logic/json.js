@@ -1,6 +1,6 @@
-const Joi = require('joi-strict');
+import Joi from 'joi-strict';
 
-module.exports = {
+export default {
   log: (obj) => {
     Joi.assert(obj, Joi.object());
     // eslint-disable-next-line no-console

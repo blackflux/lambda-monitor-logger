@@ -1,6 +1,6 @@
-const { expect } = require('chai');
-const { describe } = require('node-tdd');
-const logger = require('../../src/logic/logger');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import logger from '../../src/logic/logger.js';
 
 describe('Testing logger.', { record: console }, () => {
   it('Testing logger types.', () => {
