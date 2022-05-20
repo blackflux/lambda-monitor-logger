@@ -7,7 +7,8 @@ const callback = (match, idx, str) => {
 
 module.exports = (value, {
   stripLineBreaks = true,
-  maxLength = 512
+  maxLength = 512,
+  replace = []
 } = {}) => {
   const r = util.inspect(value, {
     compact: true,
@@ -20,5 +21,14 @@ module.exports = (value, {
       return str;
     }
   });
-  return stripLineBreaks ? r.replace(/\s*\n\s*/g, callback) : r;
+  return replace
+    .map(([k, v]) => [
+      typeof k === 'string'
+        ? new RegExp(k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')
+        : k,
+      v
+    ])
+    .filter(([k, v]) => k instanceof RegExp && ['string', 'function'].includes(typeof v))
+    .concat(stripLineBreaks ? [[/\s*\n\s*/g, callback]] : [])
+    .reduce((p, [k, v]) => p.replace(k, v), r);
 };
