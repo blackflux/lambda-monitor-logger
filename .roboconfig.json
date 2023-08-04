@@ -8,7 +8,7 @@
       "packageName": "lambda-monitor-logger",
       "projectName": "lambda-monitor-logger",
       "owner": "simlu",
-      "nodeVersion": "14",
+      "nodeVersion": "16",
       "ownerName": "Lukas Siemon",
       "mergeBot": "MrsFlux",
       "nccEnabled": false
