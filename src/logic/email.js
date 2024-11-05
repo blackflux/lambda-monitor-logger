@@ -8,7 +8,8 @@ export default {
       from: Joi.string().pattern(emailFormat),
       to: Joi.string().pattern(emailFormat),
       subject: Joi.string(),
-      body: Joi.string()
+      body: Joi.string(),
+      html: Joi.boolean().optional()
     }));
     // eslint-disable-next-line no-console
     console.log(`EMAIL: ${JSON.stringify({
