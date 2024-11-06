@@ -16,7 +16,8 @@ export default {
       from: obj.from,
       to: obj.to,
       subject: obj.subject,
-      body: obj.body
+      body: obj.body,
+      html: obj.html
     })}`);
   }
 };
