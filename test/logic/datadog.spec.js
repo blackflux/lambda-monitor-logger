@@ -9,6 +9,7 @@ describe('Testing datadog.', { record: console, timestamp: 1583284374 }, () => {
       'DATADOG: {"type":"distribution-metric","args":["metric.name",[1583284374000],{"tags":[]}]}'
     ]);
   });
+
   it('Testing logging as object.', ({ recorder }) => {
     datadog.logDistributionMetric('metric.name', { [new Date() / 1]: 10 });
     expect(recorder.get()).to.deep.equal([
